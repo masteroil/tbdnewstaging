@@ -46,11 +46,11 @@ function phoe_pincode_check()
 
 	$avail_at = !empty($availableat_text) ? $availableat_text : __('Available at', 'pho-pincode-zipcode-cod');
 	?>
-<script>
-var usejs = 1;
-</script>
+	<script>
+		var usejs = 1;
+	</script>
 
-<?php
+	<?php
 
 	$plugin_dir_url = plugin_dir_url(__FILE__);
 
@@ -379,17 +379,17 @@ var usejs = 1;
 		$availableat_text = get_option('availableat_text');
 
 		?>
-<div style="clear:both;font-size:14px;" class="wc-delivery-time-response wc-delivery-time-response-widget">
+		<div style="clear:both;font-size:14px;" class="wc-delivery-time-response wc-delivery-time-response-widget">
 
-    <span class='avlpin' id='avlpin'>
+			<span class='avlpin' id='avlpin'>
 
-        <span class="phoe-green-location-icon">
-            <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_location_icon.png" />
-        </span>
+				<span class="phoe-green-location-icon">
+					<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_location_icon.png" />
+				</span>
 
-        <p id="avat 1st"><span
-                class="pincode_static_text"><?php echo isset($availableat_text) ? $availableat_text : 'Available at'; ?>
-                <?php echo esc_html($cookie_pin);  echo esc_html($cookie_pin);
+				<p id="avat 1st"><span class="pincode_static_text">
+						<?php echo isset($availableat_text) ? $availableat_text : 'Available at'; ?>
+						<?php echo esc_html($cookie_pin);
 						if ($show_s_on_pro == 1 || $show_c_on_pro == 1) {
 							echo "</span> <br /><span class='pincode_custom_text'>(";
 						}
@@ -405,176 +405,195 @@ var usejs = 1;
 						if ($show_s_on_pro == 1 || $show_c_on_pro == 1) {
 							echo ")</span>";
 						} ?>
-        </p><a class="button" id='change_pin'><img
-                src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_pencil_logo.png" /></a>
-    </span>
+				</p><a class="button" id='change_pin'><img
+						src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_pencil_logo.png" /></a>
+			</span>
 
-    <div class="pin_div" id="my_custom_checkout_field2" style="display:none;">
+			<div class="pin_div" id="my_custom_checkout_field2" style="display:none;">
 
-        <p id="pincode_field_idp" class="form-row my-field-class form-row-wide">
+				<p id="pincode_field_idp" class="form-row my-field-class form-row-wide">
 
-            <label class=""
-                for="pincode_field_id"><?php _e('Check Availability At', 'pho-pincode-zipcode-cod'); ?></label>
+					<label class="" for="pincode_field_id">
+						<?php _e('Check Availability At', 'pho-pincode-zipcode-cod'); ?>
+					</label>
 
-            <span class="input-block">
+					<span class="input-block">
 
-                <span class="loader_div">
+						<span class="loader_div">
 
-                    <?php if ($area_wise_delivery == 1) { ?>
+							<?php if ($area_wise_delivery == 1) { ?>
 
-                    <div class="phoen_state_upper">
-                        <div class="phoen_city_1">
-                            <select name="city_list" class="city_list" id="phoen_city_list">
+								<div class="phoen_state_upper">
+									<div class="phoen_city_1">
+										<select name="city_list" class="city_list" id="phoen_city_list">
 
-                                <option value="0">
-                                    <?php _e('Select Location', 'pho-pincode-zipcode-cod'); ?>
-                                </option>
-                                <?php
+											<option value="0">
+												<?php _e('Select Location', 'pho-pincode-zipcode-cod'); ?>
+											</option>
+											<?php
 											foreach ($city_list_unique as $key => $value) {
 												?>
-                                <option value="<?php echo $value; ?>" <?php if ($valid_state == $value) {
+												<option value="<?php echo $value; ?>" <?php if ($valid_state == $value) {
 													   echo 'selected';
-												   } ?>><?php echo $value; ?></option>
-                                <?php
+												   } ?>>
+													<?php echo $value; ?>
+												</option>
+												<?php
 											}
 											?>
-                            </select>
-                        </div>
-                        <div class="phoen_area" id="phoen_area_select_1">
-                            <select name="area_list" class="area_list" id="phoen_area_list">
-                                <option value="0">
-                                    <?php _e('Select Area', 'pho-pincode-zipcode-cod'); ?>
-                                </option>
-                                <?php
+										</select>
+									</div>
+									<div class="phoen_area" id="phoen_area_select_1">
+										<select name="area_list" class="area_list" id="phoen_area_list">
+											<option value="0">
+												<?php _e('Select Area', 'pho-pincode-zipcode-cod'); ?>
+											</option>
+											<?php
 											foreach ($area_list_unique as $key => $value1) {
 												?>
-                                <option value="<?php echo $value1; ?>" <?php if ($cookie_pin == $value1) {
+												<option value="<?php echo $value1; ?>" <?php if ($cookie_pin == $value1) {
 													   echo 'selected';
 												   } ?>><?php echo $value1; ?>
-                                </option>
-                                <?php
+												</option>
+												<?php
 											}
 											?>
-                            </select>
-                        </div>
-                    </div>
+										</select>
+									</div>
+								</div>
 
-                    <?php
+								<?php
 							} else {
 
 								if ($state_based_pincode == 1) {
 									?>
-                    <select name="state_list" class="state_list" id="phoen_state_list_shop">
-                        <?php
+									<select name="state_list" class="state_list" id="phoen_state_list_shop">
+										<?php
 
 										foreach ($ftc_ary_unique as $key => $value) {
 											?>
-                        <option value="<?php echo $value; ?>" <?php if ($valid_state == $value) {
+											<option value="<?php echo $value; ?>" <?php if ($valid_state == $value) {
 												   echo 'selected';
 											   } ?>>
-                            <?php echo $value; ?></option>
-                        <?php
+												<?php echo $value; ?>
+											</option>
+											<?php
 										}
 										?>
-                    </select>
+									</select>
 
-                    <?php
+									<?php
 								} ?>
 
-                    <input type="text" <?php if ($valpp == 1) { ?> required="required" <?php } ?>
-                        value="<?php echo esc_html($cookie_pin); ?>" placeholder="<?php echo $checkpin_text; ?>"
-                        data-mine="<?php echo $product_id; ?>" id="pincode_field_id"
-                        maxlength="<?php echo $pincode_length; ?>" name="pincode_field"
-                        class="input-text pincode_field_id_a" />
-                    <?php
+								<input type="text" <?php if ($valpp == 1) { ?> required="required" <?php } ?>
+									value="<?php echo esc_html($cookie_pin); ?>" placeholder="<?php echo $checkpin_text; ?>"
+									data-mine="<?php echo $product_id; ?>" id="pincode_field_id"
+									maxlength="<?php echo $pincode_length; ?>" name="pincode_field"
+									class="input-text pincode_field_id_a" />
+								<?php
 							}
 							?>
 
-                    <span id="chkpin_loader" style="display:none">
+							<span id="chkpin_loader" style="display:none">
 
-                        <img alt="ajax-loader"
-                            src="<?php echo esc_url($plugin_dir_url); ?>assets/img/ajax-loader.gif" />
+								<img alt="ajax-loader"
+									src="<?php echo esc_url($plugin_dir_url); ?>assets/img/ajax-loader.gif" />
 
-                    </span>
+							</span>
 
-                </span>
+						</span>
 
-                <a class="button <?php echo ($textascheck == 1) ? 'phoen_text_inserted' : 'phoen_text_removed'; ?>"
-                    id="checkpin"><?php echo ($textascheck == 1) ? $checkpintext : ''; ?></a>
+						<a class="button <?php echo ($textascheck == 1) ? 'phoen_text_inserted' : 'phoen_text_removed'; ?>"
+							id="checkpin">
+							<?php echo ($textascheck == 1) ? $checkpintext : ''; ?>
+						</a>
 
-            </span>
-            <!--input-block-->
+					</span>
+					<!--input-block-->
 
 
 
-        </p>
+				</p>
 
-        <div class="error_pin" id="error_pin" style="display:none">
-            <?php if ($qry22[0]['error_msg'] != '') {
-						echo esc_html($qry22[0]['error_msg']);
-					} else {
-						echo "Invalid pincode entered";
-					} ?>
-        </div>
+				<script>
+					$("#checkpin").click(function () {
+						var post_code_area = $("#pincode_field_id").val();
+						$("#post_code_area").html(post_code_area);
+					});
+				</script>
 
-        <?php
+				</p>
+				<div class="shoppage_error" id="error_pin" style="display:none">
+					<p>
+						<?php if ($qry22[0]['error_msg'] != '') {
+							echo esc_html($qry22[0]['error_msg']);
+							echo esc_html($pincode_field_id);
+							echo '<p id="post_code_area"></p>';
+						} else {
+							echo "Invalid pincode entered";
+						} ?>
+					</p>
+
+				</div>
+
+				<?php
 
 				$error_msg_b = get_option('woo_pin_check_error_msg_b');
 
 				?>
 
-        <div class="error_pin" id="error_pin_b" style="display:none">
-            <?php echo $error_msg_b; ?>
-        </div>
+				<div class="error_pin" id="error_pin_b" style="display:none">
+					<?php echo $error_msg_b; ?>
+				</div>
 
 
-    </div>
+			</div>
 
-    <div class="delivery-info-wrap">
+			<div class="delivery-info-wrap">
 
-        <div class="delivery-info animated">
-            <?php
+				<div class="delivery-info animated">
+					<?php
 					if ($show_d_est == 1) {
 						?>
-            <div class="header">
-                <div class="phoe-pincode-pro-tick-img">
-                    <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
-                    <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_calander.png" />
-                </div>
-                <div class="phoe-pincode-pro-tick-img">
-                    <span>
-                        <h6>
-                            <?php if ($del_label == '') {
+						<div class="header">
+							<div class="phoe-pincode-pro-tick-img">
+								<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
+								<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_calander.png" />
+							</div>
+							<div class="phoe-pincode-pro-tick-img">
+								<span>
+									<h6>
+										<?php if ($del_label == '') {
 											echo "Delivered By";
 										} else {
 											echo $del_label;
 										} ?>
-                        </h6>
-                    </span>
+									</h6>
+								</span>
 
-                    <?php
+								<?php
 								if ($qry22[0]['del_date'] == 1) {
 									?>
-                    <a id="delivery_help_a" class="delivery-help-icon">
-                        <?php if ($qry22[0]['help_image'] != '') { ?><img
-                            height="<?php echo esc_html($qry22[0]['image_size']); ?>"
-                            width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img" alt="?"
-                            src="<?php echo esc_url($qry22[0]['help_image']); ?>"><?php } else { ?> <img
-                            class="help_icon_img" alt="?"
-                            src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
-                        <?php } ?>
-                    </a>
-                    <?php
+									<a id="delivery_help_a" class="delivery-help-icon">
+										<?php if ($qry22[0]['help_image'] != '') { ?><img
+												height="<?php echo esc_html($qry22[0]['image_size']); ?>"
+												width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img" alt="?"
+												src="<?php echo esc_url($qry22[0]['help_image']); ?>">
+										<?php } else { ?> <img class="help_icon_img" alt="?"
+												src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
+										<?php } ?>
+									</a>
+									<?php
 
 								}
 								?>
-                    <div class="phoen_delivery">
+								<div class="phoen_delivery">
 
-                        <ul class="ul-disc ul-discw">
+									<ul class="ul-disc ul-discw">
 
-                            <li>
+										<li>
 
-                                <?php
+											<?php
 
 											if ($dod != '0' && $deliver_by == "day") {
 												if ($show_d_d_on_pro == 1) {
@@ -618,96 +637,98 @@ var usejs = 1;
 
 											?>
 
-                            </li>
+										</li>
 
-                        </ul>
+									</ul>
 
-                    </div>
-                    <?php
+								</div>
+								<?php
 
 								if ($qry22[0]['del_date'] == 1) {
 									?>
-                    <div class="delivery_help_text_main width_class" style="display:none">
+									<div class="delivery_help_text_main width_class" style="display:none">
 
-                        <div class="delivery_help_text width_class">
+										<div class="delivery_help_text width_class">
 
-                            <?php
+											<?php
 
 											echo esc_html($qry22[0]['del_help_text']);
 
 											?>
 
-                        </div>
-                    </div>
-                </div>
-                <?php
+										</div>
+									</div>
+								</div>
+								<?php
 								}
 								?>
 
-            </div>
-            <?php
+						</div>
+						<?php
 					}
 					?>
-            <div class="cash-on-delivery-info-wrap">
+					<div class="cash-on-delivery-info-wrap">
 
-                <div class="cash-on-delivery-info">
-                    <?php
+						<div class="cash-on-delivery-info">
+							<?php
 
 							if ($show_cod_a == 1) {
 								?>
-                    <div class="header">
+								<div class="header">
 
-                        <div class="phoe-pincode-pro-tick-img">
+									<div class="phoe-pincode-pro-tick-img">
 
-                            <?php
+										<?php
 
 										if ($cod == 'yes') { ?>
 
-                            <img class="phoen_chk_avail"
-                                src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
+											<img class="phoen_chk_avail"
+												src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
 
-                            <?php } else { ?>
+										<?php } else { ?>
 
-                            <img class="phoen_chk_avail"
-                                src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_cross.png" />
+											<img class="phoen_chk_avail"
+												src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_cross.png" />
 
-                            <?php }
+										<?php }
 
 										?>
 
 
-                            <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_coins.png" />
-                        </div>
+										<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_coins.png" />
+									</div>
 
-                        <div class="phoe-pincode-pro-tick-img">
-                            <h6>
-                                <?php if ($cod_label == '') {
+									<div class="phoe-pincode-pro-tick-img">
+										<h6>
+											<?php if ($cod_label == '') {
 												echo "Cash On Delivery";
 											} else {
 												echo $cod_label;
 											} ?>
-                            </h6>
+										</h6>
 
-                            <?php
+										<?php
 
 										if ($qry22[0]['cod'] == 1) {
 											?>
-                            <a id="cash_n_delivery_help_a"
-                                class="cash-on-delivery-help-icon"><?php if ($qry22[0]['help_image'] != '') { ?><img
-                                    height="<?php echo esc_html($qry22[0]['image_size']); ?>"
-                                    width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img"
-                                    alt="" src="<?php echo esc_url($qry22[0]['help_image']); ?>"><?php } else { ?>
-                                <img class="help_icon_img" alt="?"
-                                    src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
-                                <?php } ?></a>
-                            <?php
+											<a id="cash_n_delivery_help_a" class="cash-on-delivery-help-icon">
+												<?php if ($qry22[0]['help_image'] != '') { ?><img
+														height="<?php echo esc_html($qry22[0]['image_size']); ?>"
+														width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img"
+														alt="" src="<?php echo esc_url($qry22[0]['help_image']); ?>">
+												<?php } else { ?>
+													<img class="help_icon_img" alt="?"
+														src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
+												<?php } ?>
+											</a>
+											<?php
 										}
 
 										?>
 
-                            <div class="cash-on-delivery">
+										<div class="cash-on-delivery">
 
-                                <?php
+											<?php
 
 											if ($cod == 'yes') {
 
@@ -721,61 +742,61 @@ var usejs = 1;
 
 											?>
 
-                            </div>
+										</div>
 
-                            <?php
+										<?php
 
 										if ($qry22[0]['cod'] == 1) {
 
 											?>
-                            <div class="cash_on_delivery_help_text_main width_class" style="display:none;">
+											<div class="cash_on_delivery_help_text_main width_class" style="display:none;">
 
-                                <div class="cash_on_delivery_help_text width_class">
+												<div class="cash_on_delivery_help_text width_class">
 
-                                    <?php
+													<?php
 
 													echo esc_html($qry22[0]['cod_help_text']);
 
 													?>
 
-                                </div>
-                            </div>
-                        </div>
-                        <?php
+												</div>
+											</div>
+										</div>
+										<?php
 										}
 										?>
-                    </div>
-                    <?php
+								</div>
+								<?php
 							}
 							?>
-                </div>
+						</div>
 
-            </div>
+					</div>
 
-        </div>
+				</div>
 
-    </div>
+			</div>
 
-</div>
+		</div>
 
-<?php //return ob_get_clean();
+	<?php //return ob_get_clean();
 
 	} else {
 
 		$qry22 = $wpdb->get_results("SELECT * FROM `" . $table_prefix . "pincode_setting_pro` ORDER BY `id` ASC  limit 1", ARRAY_A);
 
 		?>
-<div style="clear:both;font-size:14px;" class="wc-delivery-time-response wc-delivery-time-response-widget">
+		<div style="clear:both;font-size:14px;" class="wc-delivery-time-response wc-delivery-time-response-widget">
 
-    <span class='avlpin' id='avlpin' style="display:none">
+			<span class='avlpin' id='avlpin' style="display:none">
 
-        <span class="phoe-green-location-icon">
-            <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_location_icon.png" />
-        </span>
+				<span class="phoe-green-location-icon">
+					<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_location_icon.png" />
+				</span>
 
-        <p id="avat 2nd"><span
-                class="pincode_static_text"><?php echo isset($availableat_text) ? $availableat_text : 'Available at'; ?>
-                <?php echo esc_html($cookie_pin);
+				<p id="avat 2nd"><span class="pincode_static_text">
+						<?php echo isset($availableat_text) ? $availableat_text : 'Available at'; ?>
+						<?php echo esc_html($cookie_pin);
 						if ($show_s_on_pro == 1 || $show_c_on_pro == 1) {
 							echo "</span><br /> <span class='pincode_custom_text'>(";
 						}
@@ -791,113 +812,120 @@ var usejs = 1;
 						if ($show_s_on_pro == 1 || $show_c_on_pro == 1) {
 							echo ") </span>";
 						} ?>
-        </p><a class="button" id='change_pin'><img
-                src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_pencil_logo.png" /></a>
-    </span>
+				</p><a class="button" id='change_pin'><img
+						src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_pencil_logo.png" /></a>
+			</span>
 
-    <div class="pin_div" id="my_custom_checkout_field2">
+			<div class="pin_div" id="my_custom_checkout_field2">
 
-        <p id="pincode_field_idp" class="form-row my-field-class form-row-wide">
+				<p id="pincode_field_idp" class="form-row my-field-class form-row-wide">
 
-            <label class=""
-                for="pincode_field_id"><?php _e('Check Availability At', 'pho-pincode-zipcode-cod'); ?></label>
+					<label class="" for="pincode_field_id">
+						<?php _e('Check Availability At', 'pho-pincode-zipcode-cod'); ?>
+					</label>
 
-            <span class="input-block">
+					<span class="input-block">
 
-                <span class="loader_div">
+						<span class="loader_div">
 
-                    <?php if ($area_wise_delivery == 1) { ?>
+							<?php if ($area_wise_delivery == 1) { ?>
 
-                    <div class="phoen_state_upper">
-                        <div class="phoen_city_1">
-                            <select name="city_list" class="city_list" id="phoen_city_list">
-                                <option value="0">
-                                    <?php _e('Select Location', 'pho-pincode-zipcode-cod'); ?>
-                                </option>
-                                <?php
+								<div class="phoen_state_upper">
+									<div class="phoen_city_1">
+										<select name="city_list" class="city_list" id="phoen_city_list">
+											<option value="0">
+												<?php _e('Select Location', 'pho-pincode-zipcode-cod'); ?>
+											</option>
+											<?php
 											foreach ($city_list_unique as $key => $value) {
 												?>
-                                <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
-                                <?php
+												<option value="<?php echo $value; ?>">
+													<?php echo $value; ?>
+												</option>
+												<?php
 											}
 											?>
-                            </select>
-                        </div>
-                        <div class="phoen_area" id="phoen_area_select_1">
-                            <select name="area_list" class="area_list" id="phoen_area_list">
-                                <option value="0">
-                                    <?php _e('Select Area', 'pho-pincode-zipcode-cod'); ?>
-                                </option>
-                            </select>
-                        </div>
-                    </div>
+										</select>
+									</div>
+									<div class="phoen_area" id="phoen_area_select_1">
+										<select name="area_list" class="area_list" id="phoen_area_list">
+											<option value="0">
+												<?php _e('Select Area', 'pho-pincode-zipcode-cod'); ?>
+											</option>
+										</select>
+									</div>
+								</div>
 
-                    <?php
+								<?php
 							} else {
 
 								if ($state_based_pincode == 1) { ?>
-                    <select name="state_list" class="state_list" id="phoen_state_list_shop">
-                        <?php
+									<select name="state_list" class="state_list" id="phoen_state_list_shop">
+										<?php
 										if (isset($ftc_ary_unique) && is_array($ftc_ary_unique)) {
 											foreach ($ftc_ary_unique as $key => $value) {
 												?>
-                        <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
-                        <?php
+												<option value="<?php echo $value; ?>">
+													<?php echo $value; ?>
+												</option>
+												<?php
 											}
 										}
 
 										?>
-                    </select>
+									</select>
 
-                    <?php
+									<?php
 								} ?>
 
 
-                    <?php $cookie_pin = isset($cookie_pin) ? $cookie_pin : ''; ?>
-                    <input type="text" <?php if ($valpp == 1) { ?> required="required" <?php } ?>
-                        value="<?php echo esc_html($cookie_pin); ?>" placeholder="<?php echo $checkpin_text; ?>"
-                        data-mine="<?php echo $product_id; ?>" id="pincode_field_id"
-                        maxlength="<?php echo $pincode_length; ?>" name="pincode_field"
-                        class="input-text pincode_field_id_a" />
+								<?php $cookie_pin = isset($cookie_pin) ? $cookie_pin : ''; ?>
+								<input type="text" <?php if ($valpp == 1) { ?> required="required" <?php } ?>
+									value="<?php echo esc_html($cookie_pin); ?>" placeholder="<?php echo $checkpin_text; ?>"
+									data-mine="<?php echo $product_id; ?>" id="pincode_field_id"
+									maxlength="<?php echo $pincode_length; ?>" name="pincode_field"
+									class="input-text pincode_field_id_a" />
 
-                    <?php
+								<?php
 
 							} ?>
 
-                    <span id="chkpin_loader" style="display:none">
+							<span id="chkpin_loader" style="display:none">
 
-                        <img alt="ajax-loader"
-                            src="<?php echo esc_url($plugin_dir_url); ?>assets/img/ajax-loader.gif" />
+								<img alt="ajax-loader"
+									src="<?php echo esc_url($plugin_dir_url); ?>assets/img/ajax-loader.gif" />
 
-                    </span>
-                </span>
-                <a class="button <?php echo ($textascheck == 1) ? 'phoen_text_inserted' : 'phoen_text_removed'; ?>"
-                    id="checkpin"><?php echo ($textascheck == 1) ? $checkpintext : ''; ?></a>
+							</span>
+						</span>
+						<a class="button <?php echo ($textascheck == 1) ? 'phoen_text_inserted' : 'phoen_text_removed'; ?>"
+							id="checkpin">
+							<?php echo ($textascheck == 1) ? $checkpintext : ''; ?>
+						</a>
 
-            </span>
-            <!--input-blockaa-->
+					</span>
+					<!--input-blockaa-->
 
-            <script>
-            $("#checkpin").click(function() {
-                var post_code_area = $("#pincode_field_id").val();
-                $("#post_code_area").html(post_code_area);
-            });
-            </script>
+					<script>
+						$("#checkpin").click(function () {
+							var post_code_area = $("#pincode_field_id").val();
+							$("#post_code_area").html(post_code_area);
+						});
+					</script>
 
-        </p>
-        <div class="shoppage_error" id="error_pin" style="display:none">
-            <p>
-                <?php if ($qry22[0]['error_msg'] != '') {
+				</p>
+				<div class="shoppage_error" id="error_pin" style="display:none">
+					<p>
+						<?php if ($qry22[0]['error_msg'] != '') {
 							echo esc_html($qry22[0]['error_msg']);
 							echo esc_html($pincode_field_id);
 							echo '<p id="post_code_area"></p>';
 						} else {
 							echo "Invalid pincode entered";
 						} ?>
-            </p>
+					</p>
 
-        </div>
-        <!-- <div class="error_pin" id="error_pin" style="display:none"><?php //if($qry22[0]['error_msg'] != '' ){ echo esc_html( $qry22[0]['error_msg'] ); }else{ echo "Invalid pincode entered"; } ?></div>
+				</div>
+				<!-- <div class="error_pin" id="error_pin" style="display:none"><?php //if($qry22[0]['error_msg'] != '' ){ echo esc_html( $qry22[0]['error_msg'] ); }else{ echo "Invalid pincode entered"; } ?></div>
 									
 										<?php
 
@@ -905,267 +933,269 @@ var usejs = 1;
 
 										?> -->
 
-        <div class="error_pin" id="error_pin_b" style="display:none">
-            <?php echo $error_msg_b; ?>
-        </div>
+				<div class="error_pin" id="error_pin_b" style="display:none">
+					<?php echo $error_msg_b; ?>
+				</div>
 
 
-    </div>
-    <div class="post-c-add">
-        <div id="post-p">
-            <p class="bold-p">Sydney CBD & Metro</p>
-            <p class="light-p">We deliver your order within 72 hours Monday through Friday*</p>
-        </div>
-        <div id="post-p">
-            <p class="bold-p">Regional NSW</p>
-            <p class="light-p">Review our Delivery Service Area chart for delivery days</p>
-        </div>
-        <!-- <div id="post-p">
+			</div>
+			<div class="post-c-add">
+				<div id="post-p">
+					<p class="bold-p">Sydney CBD & Metro</p>
+					<p class="light-p">We deliver your order within 72 hours Monday through Friday*</p>
+				</div>
+				<div id="post-p">
+					<p class="bold-p">Regional NSW</p>
+					<p class="light-p">Review our Delivery Service Area chart for delivery days</p>
+				</div>
+				<!-- <div id="post-p">
 			<p class="bold-p">Melbourne CBD & Metro</p>
 			<p class="light-p">Orders must be made by 5:00pm Friday for Thursday delivery</p>
 		</div> -->
-        <div class="postc-links">
-            <a class="TERM-postcode" href="https://thebutchersdog.com.au/delivery-shipping/">*Delivery &amp; Shipping
-                Conditions apply</a>
-        </div>
-    </div>
-    <div class="delivery-info-wrap delivery-info-wrap2" style="display:none">
+				<div class="postc-links">
+					<a class="TERM-postcode" href="https://thebutchersdog.com.au/delivery-shipping/">*Delivery &amp; Shipping
+						Conditions apply</a>
+				</div>
+			</div>
+			<div class="delivery-info-wrap delivery-info-wrap2" style="display:none">
 
-        <div class="delivery-info animated">
-            <?php
+				<div class="delivery-info animated">
+					<?php
 					if ($show_d_est == 1) {
 						?>
-            <div class="header">
+						<div class="header">
 
-                <div class="phoe-pincode-pro-tick-img">
+							<div class="phoe-pincode-pro-tick-img">
 
-                    <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
+								<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/Phoeniixx_Pin_green_tick.png" />
 
-                    <img class="" src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_calander.png" />
+								<img class="" src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_calander.png" />
 
-                </div>
-                <div class="phoe-pincode-pro-tick-img">
-                    <span>
-                        <h6>
-                            <?php if ($del_label == '') {
+							</div>
+							<div class="phoe-pincode-pro-tick-img">
+								<span>
+									<h6>
+										<?php if ($del_label == '') {
 											echo "Delivered By";
 										} else {
 											echo $del_label;
 										} ?>
-                        </h6>
-                    </span>
+									</h6>
+								</span>
 
-                    <?php
+								<?php
 								if ($qry22[0]['del_date'] == 1) {
 									?>
-                    <a id="delivery_help_a" class="delivery-help-icon">
-                        <?php if ($qry22[0]['help_image'] != '') { ?><img
-                            height="<?php echo esc_html($qry22[0]['image_size']); ?>"
-                            width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img" alt="?"
-                            src="<?php echo esc_url($qry22[0]['help_image']); ?>"><?php } else { ?> <img
-                            class="help_icon_img" alt="?"
-                            src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
-                        <?php } ?>
-                    </a>
-                    <?php
+									<a id="delivery_help_a" class="delivery-help-icon">
+										<?php if ($qry22[0]['help_image'] != '') { ?><img
+												height="<?php echo esc_html($qry22[0]['image_size']); ?>"
+												width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img" alt="?"
+												src="<?php echo esc_url($qry22[0]['help_image']); ?>">
+										<?php } else { ?> <img class="help_icon_img" alt="?"
+												src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
+										<?php } ?>
+									</a>
+									<?php
 
 								}
 								?>
-                    <div class="phoen_delivery">
+								<div class="phoen_delivery">
 
-                        <ul class="ul-disc ul-discw">
+									<ul class="ul-disc ul-discw">
 
-                        </ul>
+									</ul>
 
-                    </div>
-                    <?php
+								</div>
+								<?php
 
 								if ($qry22[0]['del_date'] == 1) {
 									?>
 
-                    <div class="delivery_help_text_main width_class" style="display:none">
+									<div class="delivery_help_text_main width_class" style="display:none">
 
-                        <div class="delivery_help_text width_class">
+										<div class="delivery_help_text width_class">
 
-                            <?php
+											<?php
 
 											echo esc_html($qry22[0]['del_help_text']);
 
 											?>
 
-                        </div>
+										</div>
 
-                    </div>
-                </div>
-                <?php
+									</div>
+								</div>
+								<?php
 								}
 								?>
 
-            </div>
-            <?php
+						</div>
+						<?php
 					}
 					?>
-            <div class="cash-on-delivery-info-wrap">
+					<div class="cash-on-delivery-info-wrap">
 
-                <div class="cash-on-delivery-info animated">
-                    <?php
+						<div class="cash-on-delivery-info animated">
+							<?php
 							if ($show_cod_a == 1) {
 								?>
-                    <div class="header">
+								<div class="header">
 
-                        <div class="phoe-pincode-pro-tick-img">
+									<div class="phoe-pincode-pro-tick-img">
 
-                            <img class="phoen_chk_avail"
-                                src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_cross.png" />
+										<img class="phoen_chk_avail"
+											src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_cross.png" />
 
-                            <img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_coins.png" />
-                        </div>
+										<img src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_coins.png" />
+									</div>
 
-                        <div class="phoe-pincode-pro-tick-img">
+									<div class="phoe-pincode-pro-tick-img">
 
-                            <h6>
-                                <?php if ($cod_label == '') {
+										<h6>
+											<?php if ($cod_label == '') {
 												echo "Cash On Delivery";
 											} else {
 												echo $cod_label;
 											} ?>
-                            </h6>
-                            <?php
+										</h6>
+										<?php
 
 										if ($qry22[0]['cod'] == 1) {
 											?>
-                            <a id="cash_n_delivery_help_a"
-                                class="cash-on-delivery-help-icon"><?php if ($qry22[0]['help_image'] != '') { ?><img
-                                    height="<?php echo esc_html($qry22[0]['image_size']); ?>"
-                                    width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img"
-                                    alt="" src="<?php echo esc_url($qry22[0]['help_image']); ?>"><?php } else { ?>
-                                <img class="help_icon_img" alt="?"
-                                    src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
-                                <?php } ?></a>
-                            <?php
+											<a id="cash_n_delivery_help_a" class="cash-on-delivery-help-icon">
+												<?php if ($qry22[0]['help_image'] != '') { ?><img
+														height="<?php echo esc_html($qry22[0]['image_size']); ?>"
+														width="<?php echo esc_html($qry22[0]['image_size1']); ?>" class="help_icon_img"
+														alt="" src="<?php echo esc_url($qry22[0]['help_image']); ?>">
+												<?php } else { ?>
+													<img class="help_icon_img" alt="?"
+														src="<?php echo esc_url($plugin_dir_url); ?>assets/img/phoeniixx_pin_question_mark.png">
+												<?php } ?>
+											</a>
+											<?php
 										}
 
 										?>
-                            <div class="cash-on-delivery"></div>
+										<div class="cash-on-delivery"></div>
 
-                            <?php
+										<?php
 
 										if ($qry22[0]['cod'] == 1) {
 
 											?>
-                            <div class="cash_on_delivery_help_text_main width_class" style="display:none;">
-                                <?php
+											<div class="cash_on_delivery_help_text_main width_class" style="display:none;">
+												<?php
 
 												if ($qry22[0]['tt_c_image'] != '') {
 													?>
 
-                                <img height="<?php echo esc_html($qry22[0]['tt_c_image_size']); ?>"
-                                    width="<?php echo esc_html($qry22[0]['tt_c_image_size1']); ?>"
-                                    id="cash_n_delivery_help_x" class="delivery-help-cross"
-                                    src="<?php echo esc_url($qry22[0]['tt_c_image']); ?>" />
+													<img height="<?php echo esc_html($qry22[0]['tt_c_image_size']); ?>"
+														width="<?php echo esc_html($qry22[0]['tt_c_image_size1']); ?>"
+														id="cash_n_delivery_help_x" class="delivery-help-cross"
+														src="<?php echo esc_url($qry22[0]['tt_c_image']); ?>" />
 
-                                <?php
+													<?php
 												} else {
 													?>
 
-                                <a id="cash_n_delivery_help_x" class="delivery-help-cross"> <img class="help_icon_img"
-                                        alt="x" src="<?php echo esc_url($plugin_dir_url); ?>assets/img/cross.png">
-                                </a>
+													<a id="cash_n_delivery_help_x" class="delivery-help-cross"> <img class="help_icon_img"
+															alt="x" src="<?php echo esc_url($plugin_dir_url); ?>assets/img/cross.png">
+													</a>
 
-                                <?php
+													<?php
 												}
 												?>
 
-                                <div class="cash_on_delivery_help_text width_class">
+												<div class="cash_on_delivery_help_text width_class">
 
-                                    <?php
+													<?php
 
 													echo esc_html($qry22[0]['cod_help_text']);
 
 													?>
 
-                                </div>
-                            </div>
-                        </div>
-                        <?php
+												</div>
+											</div>
+										</div>
+										<?php
 										}
 										?>
-                    </div>
-                    <?php
+								</div>
+								<?php
 							}
 							?>
-                </div>
+						</div>
 
-            </div>
+					</div>
 
-        </div>
+				</div>
 
-    </div>
+			</div>
 
-</div>
-<?php
+		</div>
+		<?php
 
 	}
 
 	?>
-<script>
-jQuery(function() {
-    jQuery("select#phoen_city_list").on("change", function() {
-        var selected_city = jQuery(this).val();
-        var product_id = jQuery(this).attr('data-mine');
-        var phoen_send_ajax_for_city = '<?php echo admin_url('admin-ajax.php'); ?>';
-        jQuery("#shop_chkpin_loader").show();
-        if (selected_city !== "") {
+	<script>
+		jQuery(function () {
+			jQuery("select#phoen_city_list").on("change", function () {
+				var selected_city = jQuery(this).val();
+				var product_id = jQuery(this).attr('data-mine');
+				var phoen_send_ajax_for_city = '<?php echo admin_url('admin-ajax.php'); ?>';
+				jQuery("#shop_chkpin_loader").show();
+				if (selected_city !== "") {
 
-            jQuery.post(
+					jQuery.post(
 
-                phoen_send_ajax_for_city, {
-                    'action': 'phoen_action_city_send',
-                    'city': selected_city,
-                    'product_id': product_id
-                },
-                function(response) {
-                    jQuery("#shop_chkpin_loader").show();
-                    jQuery("#phoen_area_select_1").html(response);
-                }
+						phoen_send_ajax_for_city, {
+						'action': 'phoen_action_city_send',
+						'city': selected_city,
+						'product_id': product_id
+					},
+						function (response) {
+							jQuery("#shop_chkpin_loader").show();
+							jQuery("#phoen_area_select_1").html(response);
+						}
 
-            );
+					);
 
-        }
+				}
 
-    });
-});
-jQuery(document).ready(function() {
+			});
+		});
+		jQuery(document).ready(function () {
 
-    var selected_city = jQuery.trim(jQuery('.phoen_city_1 .city_list').val());
-    var product_id = jQuery(".phoen_city_1 .city_list").attr('data-mine');
-    var phoen_send_ajax_for_city = '<?php echo admin_url('admin-ajax.php'); ?>';
-    jQuery("#shop_chkpin_loader").show();
-    if (selected_city !== "") {
+			var selected_city = jQuery.trim(jQuery('.phoen_city_1 .city_list').val());
+			var product_id = jQuery(".phoen_city_1 .city_list").attr('data-mine');
+			var phoen_send_ajax_for_city = '<?php echo admin_url('admin-ajax.php'); ?>';
+			jQuery("#shop_chkpin_loader").show();
+			if (selected_city !== "") {
 
-        jQuery.post(
+				jQuery.post(
 
-            phoen_send_ajax_for_city, {
-                'action': 'phoen_action_city_send',
-                'city': selected_city,
-                'product_id': product_id
-            },
-            function(response) {
-                jQuery("#shop_chkpin_loader").hide();
-                jQuery("#phoen_area_select_1").html(response);
-            }
+					phoen_send_ajax_for_city, {
+					'action': 'phoen_action_city_send',
+					'city': selected_city,
+					'product_id': product_id
+				},
+					function (response) {
+						jQuery("#shop_chkpin_loader").hide();
+						jQuery("#phoen_area_select_1").html(response);
+					}
 
-        );
+				);
 
-    }
+			}
 
-    // jQuery("#phoen_area_list").select2();
-    jQuery('.phoen_city_1 .city_list').select2();
-    jQuery('#phoen_area_select_1 .area_list').select2();
-    jQuery('#phoen_state_list_shop').select2();
-});
-</script>
-<?php
+			// jQuery("#phoen_area_list").select2();
+			jQuery('.phoen_city_1 .city_list').select2();
+			jQuery('#phoen_area_select_1 .area_list').select2();
+			jQuery('#phoen_state_list_shop').select2();
+		});
+	</script>
+	<?php
 	return ob_get_clean();
 }
 ?>
